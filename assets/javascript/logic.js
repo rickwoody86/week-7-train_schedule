@@ -1,10 +1,10 @@
 var config = {
-  apiKey: "AIzaSyDozNzPrdCP0JxWSykjeABhNr4gq7mnpuE",
-  authDomain: "richards-project-1cd21.firebaseapp.com",
-  databaseURL: "https://richards-project-1cd21.firebaseio.com",
-  projectId: "richards-project-1cd21",
-  storageBucket: "richards-project-1cd21.appspot.com",
-  messagingSenderId: "338630190378"
+	apiKey: "AIzaSyDozNzPrdCP0JxWSykjeABhNr4gq7mnpuE",
+	authDomain: "richards-project-1cd21.firebaseapp.com",
+	databaseURL: "https://richards-project-1cd21.firebaseio.com",
+	projectId: "richards-project-1cd21",
+	storageBucket: "richards-project-1cd21.appspot.com",
+	messagingSenderId: "338630190378"
 };
 
 firebase.initializeApp(config);
@@ -22,7 +22,7 @@ firebase.initializeApp(config);
 
     // On click function for submit button
     $("#submit-train").on("click", function() {
-      event.preventDefault();
+    	event.preventDefault();
     //Obtain form input values
     var trnName = $("#inputName").val().trim();
     var trnDestination = $("#inputDestination").val().trim();
@@ -31,10 +31,10 @@ firebase.initializeApp(config);
 
     // Local object for holding "temporary" train data
     var newTrn = {
-      name: trnName,
-      destination: trnDestination,
-      time: trnTime,
-      frequency: trnFrequency
+    	name: trnName,
+    	destination: trnDestination,
+    	time: trnTime,
+    	frequency: trnFrequency
     }
 
     //Saves new train data
@@ -54,7 +54,7 @@ firebase.initializeApp(config);
 //Firebase event that adds input data to a row in the html
 database.ref("/trainData").on("child_added", function(childSnapshot, prevChildKey) {
 
-  console.log(childSnapshot.val());
+	console.log(childSnapshot.val());
 
   // Store everything into a variable.
   var trnName = childSnapshot.val().name;
@@ -68,12 +68,12 @@ database.ref("/trainData").on("child_added", function(childSnapshot, prevChildKe
   console.log(trnFrequency);
 
   // First Train Time (pushed back 1 year to make sure it comes before current time)
-    var trnTimeConverted = moment(trnTime, "HH:mm").subtract(1, "years");
-    console.log(trnTimeConverted);
+  var trnTimeConverted = moment(trnTime, "HH:mm").subtract(1, "years");
+  console.log(trnTimeConverted);
 
   // Current Time
-    var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
+  var currentTime = moment();
+  console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
 
     // Difference between the times
     var diffTime = moment().diff(moment(trnTimeConverted), "minutes");
@@ -91,9 +91,9 @@ database.ref("/trainData").on("child_added", function(childSnapshot, prevChildKe
     var nextTrain = moment().add(trnMinutesTill, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
 
-  
+    
 
   // Add each train's data into the table
   $("#train-table > tbody").append("<tr><td>" + trnName + "</td><td>" + trnDestination + "</td><td>" +
-  trnFrequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + trnMinutesTill + "</td><td>" + "" + "</td></tr>");
+  	trnFrequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + trnMinutesTill + "</td><td>" + "" + "</td></tr>");
 });
