@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Train Schedule</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <!-- Bootstrap CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+  <!-- Moment Reference -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+  
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="jumbotron text-center pageTitle">
+			<h1>Train Schedule</h1>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">Current Train Schedule</div>
+			<div class="panel-body">
+			</div>
+
+			
+			<table class="table" id="train-table">
+       <thead>
+        <tr>
+         <th>Train Name</th>
+         <th>Destination</th>
+         <th>Frequency(min)</th>
+         <th>Next Arrival</th>
+         <th>Minutes Away</th>
+       </tr>
+     </thead>
+     <tbody>
+     </tbody>
+   </table>
+   <div class="some-data"></div>
+ </div>
+
+
+</table>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Add Train</div>
+  <div class="panel-body">
+
+   <form>
+    <div class="form-group">
+     <label for="inputName">Train Name</label>
+     <input type="text" class="form-control" id="inputName" placeholder="Enter Name">
+
+   </div>
+   <div class="form-group">
+     <label for="inputRole">Destination</label>
+     <input type="text" class="form-control" id="inputDestination" placeholder="Enter Destination">
+
+   </div>
+
+   <div class="form-group">
+     <label for="inputStartTime">First Depature (HH:MM - Military Time)</label>
+     <input type="number" class="form-control" id="inputStartTime" placeholder="Enter Time">
+
+   </div>
+
+   <div class="form-group">
+     <label for="inputFreq">Frequency</label>
+     <input type="number" class="form-control" id="inputFreq" placeholder="Enter Frequency">
+
+   </div>
+
+ </div>
+ <button type="submit" class="btn btn-primary" id="submit-train">Submit</button>
+</form>
+</div>
+ <script src="assets/javascript/logic.js"></script>
+
+
+   
+
+
+
+
+
+</body>
+</html>
